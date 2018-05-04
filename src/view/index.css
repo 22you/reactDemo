@@ -1,0 +1,103 @@
+.pageWrap{
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    
+}
+.wrap{
+    max-width:980px;
+    margin:0 auto;
+}
+#logo{
+    color:#fff;
+    margin-bottom: 0;
+    text-align: center;
+    
+}
+
+.headerDivider{
+    height: 44px;
+    margin: 10px 0;
+    float: left;
+}
+#nav{
+    float: left;
+    background: none;
+    border:none;
+    line-height: 62px;
+    margin-left: 30px;
+}
+#nav a{
+    color: #fff;
+}
+#nav .ant-menu-item-selected a{
+color:#1890ff;
+}
+.xsNav{
+    position: absolute;
+    right: 0;
+    top: 0;
+    margin: auto;
+}
+.Main{
+    flex: 1;
+}
+.Main .wrap{
+    border:1px solid #ccc;
+    border-top:none;
+}
+.indexNav{
+    border-right:none;
+}
+.indexNav li{
+    text-align: center;
+    border-right:3px solid rgba(0,0,0,0);
+}
+.indexNav li:hover,.indexNav .ant-menu-item-selected{
+ border-color: #189;
+ background: #e6f7ff;
+}
+.indexlist{
+    border-left:1px solid #ccc;
+    padding:0 10px;
+}
+.indexlist p{
+    margin:0;
+}
+.replyList .ant-list-item-meta-avatar{
+ display: block;
+}
+.userAvatar{
+    margin:0  auto;
+    display:block;
+    width: 100px;
+    height:100px;
+    border-radius:50px;
+}
+.userInfo{
+    line-height: 24px;
+   text-align: center;
+   padding:10px 0;
+}
+.userlist .username{
+margin:0 10px 0 5px;
+}
+.userlist .ant-list-item{
+ position: relative;
+}
+.userlist time{
+    position: absolute;
+    right:0;
+}
+/* @media all and (max-width:767px){
+    .indexNav{
+        display: flex;border-bottom:1px solid #ccc;
+
+    }
+    .indexNav li{
+        border:none;
+        border-bottom:3px solid rgba(0,0,0,0);
+        margin:0 0 -1px 0!important;
+    }
+
+} */
