@@ -3,6 +3,11 @@ function list(state={
     loading:true
 },action){
  switch(action.type){
+     case 'lIST_UPDATA':
+     return {
+         loading:true,
+         data:state.data
+     }
      case "LIST_UPDATA_SUCC":
      return{
          loading:false,

@@ -13,20 +13,24 @@ import axios from 'axios';
              page:1,
          }
          this.getData(this.props.tab);
+   
      }
      shouldComponentUpdate(nextProps,nextState){
          console.log(this.props.tab,nextProps.tab);
          if(this.props.tab!=nextProps.tab){
              this.getData(nextProps.tab);
-             return false;
+              return false;
          }
-         return true;
+          return true;
      }
      getData(tab){
          this.props.dispatch((dispatch)=>{
+          dispatch({
+              type:'lIST_UPDATA'
+          });
           axios.get(`https://cnodejs.org/api/v1/topics?tab=${tab}&page=${this.state.page}&limit=15`)
           .then((res)=>{
-        //    console.log(res);
+            console.log(res);
            dispatch({
                type:'LIST_UPDATA_SUCC',
                data:res.data

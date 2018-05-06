@@ -15,7 +15,7 @@ export default class Router extends Component{
                <Route path="/index/:id" component={Index}/>
                <Route path="/book" component={Book}/>
                <Route path="/about" component={About}/>
-               <Route path="/detail" component={Details}/>
+               <Route path="/detail/:id" component={Details}/>
                <Route path="/user" component={User}/>
             </Switch>
         )
