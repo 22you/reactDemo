@@ -9,6 +9,7 @@ class Details extends Component{
     constructor(arg){
         super(arg)
         let id=this.props.match.params.id;
+        
         this.getData(id);
     }
 
@@ -34,7 +35,7 @@ class Details extends Component{
        })
    }
     render(){
-      
+       console.log("传入的属性为:",this.props)
        let {loading,data} =this.props;
         return  (<div className="wrap">
         <TxtDetails 

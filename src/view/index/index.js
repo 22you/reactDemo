@@ -1,6 +1,6 @@
 import React,{Component} from 'react';
 
-import {Row,Col} from "antd"
+import {Row,Col,Pagination} from "antd"
 
 import IndexMenu from './indexMenu';
 import IndexList from './list'
@@ -21,6 +21,14 @@ export default class Index extends Component{
             </Col>
             <Col md={18} xs={24} className="indexlist">
            <IndexList tab={tab}/>
+           <Pagination
+            current={1}
+            pageSize={10}
+            total={50}
+            onChange={(current)=>{
+    console.log(current)
+            }}
+           />
             </Col>
             </Row>
         )

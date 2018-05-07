@@ -12,25 +12,31 @@ import axios from 'axios';
          this.state={
              page:1,
          }
-         this.getData(this.props.tab);
+         this.getData(this.props.tab,this.state.page);
    
      }
      shouldComponentUpdate(nextProps,nextState){
-         console.log(this.props.tab,nextProps.tab);
+         if(this.state.page !=nextState.page){
+             this.getData(nextProps.tab,nextState.page)
+             return false;
+         }
          if(this.props.tab!=nextProps.tab){
-             this.getData(nextProps.tab);
+             this.state.page=1
+             this.getData(nextProps.tab,1);
+             this.setState({
+                 page:0
+             })
               return false;
          }
           return true;
      }
-     getData(tab){
+     getData(tab,page){
          this.props.dispatch((dispatch)=>{
           dispatch({
               type:'lIST_UPDATA'
           });
-          axios.get(`https://cnodejs.org/api/v1/topics?tab=${tab}&page=${this.state.page}&limit=15`)
+          axios.get(`https://cnodejs.org/api/v1/topics?tab=${tab}&page=${page}&limit=5`)
           .then((res)=>{
-            console.log(res);
            dispatch({
                type:'LIST_UPDATA_SUCC',
                data:res.data
@@ -47,9 +53,21 @@ import axios from 'axios';
     render(){
         let {loading,data}=this.props;
         //loading,data,tab,page
+        let pagination={
+            current:this.state.page,
+            pageSize:10,
+            total:1000,
+            onChange:((current)=>{
+              console.log(current)
+              this.setState({
+                  page:current
+              })
+            })
+        }
         return(
         <List loading={loading}
          dataSource={data}
+         pagination={pagination}
          renderItem={item=>(<List.Item
           actions={["回复"+item.reply_count,"访问"+item.visit_count]}
           key={item.id}
